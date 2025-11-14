@@ -1,0 +1,172 @@
+<p-toast></p-toast>
+
+<p-confirmDialog 
+  header="Confirmar Remoção"
+  icon="pi pi-exclamation-triangle"
+  message="Tem certeza de que deseja remover este produto? Esta ação não pode ser desfeita."
+  [style]="{ width: '450px' }">
+</p-confirmDialog>
+
+<div class="card">
+  <p-table
+    [value]="products"
+    [paginator]="true"
+    [rows]="5"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    [globalFilterFields]="['nome', 'sku']"
+    #dt>
+
+    <!-- CAPTION -->
+    <ng-template pTemplate="caption">
+      <div class="table-header">
+        <h5 class="p-m-0">Gerenciamento de Produtos</h5>
+
+        <div class="table-controls">
+
+          <!-- Campo de Busca Refinado -->
+          <p-iconfield>
+            <p-inputicon class="pi pi-search"></p-inputicon>
+            <input 
+              type="text"
+              pInputText
+              placeholder="Buscar produto por nome ou SKU"
+              (input)="dt.filterGlobal($event.target.value, 'contains')"
+            />
+          </p-iconfield>
+
+          <button
+            pButton
+            label="Novo Produto"
+            icon="pi pi-plus"
+            class="p-button-success"
+            (click)="openNew()">
+          </button>
+
+        </div>
+      </div>
+    </ng-template>
+
+    <!-- HEADER -->
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="nome">
+          Nome do Produto <p-sortIcon field="nome"></p-sortIcon>
+        </th>
+
+        <th pSortableColumn="sku">
+          Código (SKU) <p-sortIcon field="sku"></p-sortIcon>
+        </th>
+
+        <th pSortableColumn="quantidade">
+          Estoque Atual <p-sortIcon field="quantidade"></p-sortIcon>
+        </th>
+
+        <th>Ações</th>
+      </tr>
+    </ng-template>
+
+    <!-- BODY -->
+    <ng-template pTemplate="body" let-product>
+      <tr>
+        <td>{{ product.nome }}</td>
+        <td>{{ product.sku }}</td>
+        <td>{{ product.quantidade }}</td>
+
+        <td>
+          <button
+            pButton
+            pRipple
+            icon="pi pi-pencil"
+            class="p-button-rounded p-button-warning p-mr-2"
+            (click)="editProduct(product)">
+          </button>
+
+          <button
+            pButton
+            pRipple
+            icon="pi pi-trash"
+            class="p-button-rounded p-button-danger"
+            (click)="deleteProduct(product)">
+          </button>
+        </td>
+      </tr>
+    </ng-template>
+
+    <!-- EMPTY MESSAGE -->
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="4">Nenhum produto encontrado.</td>
+      </tr>
+    </ng-template>
+
+  </p-table>
+
+  <!-- DIALOG -->
+  <p-dialog
+    [(visible)]="productDialog"
+    [style]="{ width: '450px' }"
+    header="Detalhes do Produto"
+    [modal]="true"
+    class="p-fluid"
+    (onHide)="hideDialog()">
+
+    <ng-template pTemplate="content">
+      <div class="field">
+        <label for="nome">Nome do Produto</label>
+        <input
+          type="text"
+          pInputText
+          id="nome"
+          [(ngModel)]="product.nome"
+          required
+          autofocus
+          [ngClass]="{ 'ng-invalid ng-dirty': submitted && !product.nome }" />
+
+        <small class="p-error" *ngIf="submitted && !product.nome">
+          Informe um nome válido para o produto.
+        </small>
+      </div>
+
+      <div class="field">
+        <label for="sku">Código (SKU)</label>
+        <input
+          type="text"
+          pInputText
+          id="sku"
+          [(ngModel)]="product.sku"
+          required />
+      </div>
+
+      <div class="field">
+        <label for="quantidade">Estoque Atual</label>
+        <p-inputNumber
+          id="quantidade"
+          [(ngModel)]="product.quantidade"
+          [showButtons]="true"
+          [min]="0">
+        </p-inputNumber>
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+      <button
+        pButton
+        pRipple
+        label="Cancelar"
+        icon="pi pi-times"
+        class="p-button-text"
+        (click)="hideDialog()">
+      </button>
+
+      <button
+        pButton
+        pRipple
+        label="Salvar Registro"
+        icon="pi pi-check"
+        class="p-button-text"
+        (click)="saveProduct()">
+      </button>
+    </ng-template>
+
+  </p-dialog>
+</div>

@@ -1,0 +1,101 @@
+
+.card {
+  background-color: #1e1e1e;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid #3a3a3a;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+}
+
+.table-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  h5 {
+    margin: 0;
+    font-weight: 600;
+    color: #fff;
+  }
+}
+
+.table-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+p-iconfield {
+  display: flex;
+  align-items: center;
+  background: #2a2a2a;
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid #3a3a3a;
+  min-width: 230px;
+  height: 40px;
+  transition: border-color .2s ease;
+
+  &:hover {
+    border-color: #5a5a5a;
+  }
+
+  input[pInputText] {
+    background: transparent;
+    border: none;
+    color: #eee;
+    margin-left: 0.5rem;
+    flex: 1;
+    font-size: 0.95rem;
+
+    &::placeholder {
+      color: #888;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .pi {
+    font-size: 1.1rem;
+    color: #bbb;
+  }
+}
+
+.field {
+  margin-bottom: 1.5rem;
+
+  label {
+    display: block;
+    margin-bottom: 0.35rem;
+    color: #ddd;
+  }
+}
+
+.ng-invalid.ng-dirty {
+  border-color: #f44336 !important;
+}
+
+.p-mr-2 {
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 600px) {
+  .table-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .table-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+  p-iconfield input[pInputText] {
+    width: 100%;
+  }
+}
