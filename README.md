@@ -1,59 +1,78 @@
-# GerenciadorDeEstoque
+# 📦 Gerenciador de Estoque (Angular + PrimeNG)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.10.
+<p align="center">
+  <img alt="Angular" src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white">
+  <img alt="PrimeNG" src="https://img.shields.io/badge/PrimeNG-2196F3?style=for-the-badge&logo=primeng&logoColor=white">
+  <img alt="TypeScript" src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white">
+</p>
 
-## Development server
+---
 
-To start a local development server, run:
+## 📖 Sobre o Projeto
 
-```bash
-ng serve
-```
+Um painel de controle simples para gerenciamento de estoque (CRUD) construído com a arquitetura Standalone do Angular (v17+) e os componentes ricos do PrimeNG (v20+), focado em uma interface limpa e responsiva.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 📸 Visualização
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+<p align="center">
+  <img alt="Demo do Gerenciador de Estoque" src="https://github.com/user-attachments/assets/671fd988-5839-413a-aae0-438b1e631cf6" width="90%">
+</p>
 
-```bash
-ng generate component component-name
-```
+---
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## ✨ Funcionalidades Principais
 
-```bash
-ng generate --help
-```
+Este projeto implementa todas as funcionalidades básicas de um sistema CRUD:
 
-## Building
+* ✅ **Listar Produtos:** Visualização paginada e ordenável de todos os produtos.
+* ✅ **Buscar Produtos:** Filtro global instantâneo para buscar por Nome ou SKU.
+* ✅ **Criar Produto:** Adiciona um novo produto ao estoque através de um formulário em modal.
+* ✅ **Editar Produto:** Atualiza as informações de um produto existente no mesmo modal.
+* ✅ **Excluir Produto:** Remove um produto da lista com um modal de confirmação.
+* ✅ **Notificações (Toasts):** Feedback visual para o usuário após cada ação.
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## 🛠️ Tecnologias Utilizadas
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+* **[Angular (v17+)](https://angular.io/):** Framework principal, utilizando a nova arquitetura de **Standalone Components**.
+* **[PrimeNG (v20+)](https://primeng.org/):** Biblioteca de componentes UI. Principais componentes usados:
+    * `Table` (Tabela de dados)
+    * `Dialog` (Modais de formulário)
+    * `ConfirmDialog` (Modal de confirmação)
+    * `Toast` (Notificações)
+    * `IconField` / `InputIcon` (Barra de busca estilizada)
+    * `Button`, `InputText`, `InputNumber`
+* **[PrimeIcons](https://primeflex.org/primeicons):** Biblioteca de ícones.
+* **[SCSS](https://sass-lang.com/):** Para a estilização personalizada do tema escuro e layout.
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+## 🚀 Como Executar o Projeto
 
-```bash
-ng test
-```
+Siga os passos abaixo para rodar o projeto localmente:
 
-## Running end-to-end tests
+1.  **Clone o repositório:**
+    ```bash
+    git clone [https://github.com/SEU_USUARIO/gerenciador_de_estoque.git](https://github.com/SEU_USUARIO/gerenciador_de_estoque.git)
+    ```
 
-For end-to-end (e2e) testing, run:
+2.  **Navegue até a pasta do projeto:**
+    ```bash
+    cd gerenciador_de_estoque
+    ```
 
-```bash
-ng e2e
-```
+3.  **Instale as dependências:**
+    ```bash
+    npm install
+    ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+4.  **Execute o servidor de desenvolvimento:**
+    ```bash
+    ng serve
+    ```
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+5.  **Abra no navegador:**
+    Acesse `http://localhost:4200` e o aplicativo estará funcionando.
